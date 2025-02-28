@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outra Página</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body class="outra-pagina"> 
 
@@ -14,19 +15,56 @@
 
     <div class="content">
         <h1>Este site é para a mulher mais linda deste mundo. </h1>
-        <p>Se você não for ela, vá se fude vadia  </p>
+        <p>Se você não for ela, vá se fuder, vadia</p>
     </div>
 
     <div class="extra-content">
-        <h2>passsando aqui para te lembra </h2>
-        <p>do tanto q eu te amo e sou grato por ter vc meu amor e sinto sdds todos os dias de vc, vc nao sabe mas vc me salvo antes de vc eu era uma pessoa perdida sem rumo e acostumado com a vida do jeito q ela era mas depois que vc chegou vc me mostro q a vida é muito mais q iisso  </p>
+        <h2>Contagem do Tempo Juntos e de quanto tempo eu te amo </h2>
+        <div id="contador"></div>
+        
+        <h2>Passando aqui para te lembrar...</h2>
+        <p>Do tanto que eu te amo e sou grato por ter você... Meu amor, sinto saudades todos os dias. Você não sabe, mas me salvou. Antes de você, eu era uma pessoa perdida, sem rumo. Mas você me mostrou que a vida é muito mais que isso. Você deu cor ao meu mundo, e sou eternamente grato por ter você na minha vida.
+
+            Você é meu mundo. Meu estresse, minha paz, minha felicidade, meu susto, meu sono, minhas risadas... meu tudo. Amo cada detalhe em você, sem exceção. Eu te amo, amor. Não há palavras no mundo que consigam descrever o que sinto. Saiba que é algo do tipo: ajhnw fosdvoiiwf ewqfv ovffjwwe nowdvj... e assim vai, por muito, muito, muito tempo. Milênios, séculos, anos, meses, horas, minutos, segundos, milésimos...
+            
+            Enfim, amor, eu te amo muito e vou fazer questão de te lembrar disso sempre, todos os dias e anos. ❤️  </p>
     </div>
 
-    
-    <div class="polaroide top-left"><img src="fotos/foto1.jpeg" alt="Foto 1"></div>
-    <div class="polaroide top-right"><img src="fotos/foto2.jpeg" alt="Foto 2"></div>
-    <div class="polaroide bottom-left"><img src="fotos/foto3.jpeg" alt="Foto 3"></div>
-    <div class="polaroide bottom-right"><img src="fotos/foto4.jpeg" alt="Foto 4"></div>
+    <!-- Envelope Interativo -->
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Pra Vitoria Diniz Alvez Tozzo ❤️</strong>
+                        <p>EU TE AMO MIL MILHOES</p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+
+    <div class="polaroide-container">
+        <div class="polaroide esquerda"><img src="fotos/foto1.jpeg"></div>
+        <div class="polaroide direita"><img src="fotos/foto2.jpeg"></div>
+        <div class="polaroide esquerda"><img src="fotos/foto3.jpeg"></div>
+        <div class="polaroide direita"><img src="fotos/foto4.jpeg"></div>
+        <div class="polaroide esquerda"><img src="fotos/foto5.jpeg"></div>
+        <div class="polaroide direita"><img src="fotos/foto6.jpeg"></div>
+        <div class="polaroide esquerda"><img src="fotos/foto7.jpeg"></div>
+        <div class="polaroide direita"><img src="fotos/foto8.jpeg"></div>
+        <div class="polaroide esquerda"><img src="fotos/foto9.jpeg"></div>
+        <div class="polaroide direita"><img src="fotos/foto10.jpeg"></div>
+        <div class="polaroide esquerda"><img src="fotos/foto11.jpeg"></div>
+        <div class="polaroide direita"><img src="fotos/foto12.jpeg"></div>
+    </div>
+
+    <script>
+        document.querySelector('.envelope-wrapper').addEventListener('click', function() {
+            this.classList.toggle('flap');
+        });
+    </script>
 
 </body>
 </html>

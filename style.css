@@ -1,4 +1,4 @@
-/* Reset e configurações gerais */
+/* Reset e configurações globais */
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +9,8 @@ body {
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
+    background: rgb(5, 53, 61);
+    overflow-x: hidden;
 }
 
 /* Estilização do vídeo de fundo */
@@ -22,51 +24,165 @@ body {
     z-index: -1;
 }
 
-/* Estilização do conteúdo */
+/* Conteúdo principal */
 .content {
     position: relative;
     z-index: 1;
+    padding: 50px 20px;
+}
+
+.extra-content {
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Contador de tempo juntos */
+#contador {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4081;
+    margin-bottom: 20px;
+}
+
+/* Envelope Interativo */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.envelope-wrapper {
+    position: relative;
+    cursor: pointer;
+    width: 220px;
+    height: 150px;
+    background: #f5edd1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.envelope {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    z-index: 3;
+    border-top: 80px solid #ecdeb8;
+    border-right: 110px solid transparent;
+    border-left: 110px solid transparent;
+    transition: all 0.5s ease-in-out;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    z-index: 2;
+    width: 0;
+    height: 0;
+    border-top: 80px solid transparent;
+    border-right: 110px solid #e6cfa7;
+    border-bottom: 70px solid #e6cfa7;
+    border-left: 110px solid #e6cfa7;
+}
+
+.letter {
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    background: white;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    top: 30px;
+    left: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
-/* Estilização do botão */
-.botao {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff4d6d;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s;
+.letter .text {
+    font-family: Arial, sans-serif;
+    color: #444;
+    font-size: 14px;
 }
 
-.botao:hover {
-    background-color: #c91d40;
-}
-
-/* Estilos específicos para a outra página */
-.outra-pagina .content {
-    min-height: 100vh; /* Aumenta a altura da página apenas na outra_pagina.html */
-}
-.outra-pagina .extra-content {
-    margin-top: 200px;
-}
-
-/* Estilo das polaroides */
-.polaroide {
+/* Coração */
+.heart {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    background: rgb(252, 8, 231);
+    z-index: 3;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: transform 0.4s ease-in-out;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: rgb(252, 8, 231);
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -7px;
+}
+
+.heart::after {
+    right: 7px;
+}
+
+/* Efeito ao abrir o envelope */
+.envelope-wrapper.flap .envelope::before {
+    transform: rotateX(180deg);
+    z-index: -1;
+}
+
+.envelope-wrapper.flap .letter {
+    top: -60px;
+    transform: scale(1.2);
+}
+
+.envelope-wrapper.flap .heart {
+    transform: rotate(90deg);
+}
+
+/* Polaroides */
+.polaroide-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.polaroide {
     width: 120px;
     height: 150px;
     background: white;
     padding: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    transform: rotate(-5deg);
+    border-radius: 5px;
+    transition: transform 0.5s ease-in-out;
 }
 
 .polaroide img {
@@ -75,35 +191,63 @@ body {
     border-radius: 5px;
 }
 
-/* Posições dos quadrados nos cantos */
-.top-left {
-    top: 20px;
-    left: 20px;
+/* Efeito ao passar o mouse */
+.polaroide:hover {
+    transform: rotate(10deg) scale(1.1);
+    z-index: 10;
+}
+
+/* Posicionamento aleatório para as polaroides */
+.esquerda {
     transform: rotate(-10deg);
 }
 
-.top-right {
-    top: 20px;
-    right: 20px;
+.direita {
     transform: rotate(10deg);
 }
 
-.bottom-left {
-    bottom: 20px;
-    left: 20px;
-    transform: rotate(8deg);
+.polaroide:hover {
+    transform: rotate(0deg) scale(1.2);
+}
+/* Estilização do título */
+.content h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
 }
 
-.bottom-right {
-    bottom: 20px;
-    right: 20px;
-    transform: rotate(-8deg);
-}
-
-/* Estilização do conteúdo extra */
-.extra-content {
+/* Estilização do parágrafo */
+.content {
     text-align: center;
-    color: white;
-    padding: 50px;
+}
+
+.content p {
     font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+/* Botão estilizado */
+.botao {
+    display: inline-block;
+    background: #ff4081;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.botao:hover {
+    background: #e60073;
+}
+.content1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 50px 20px;
+    text-align: center;
 }
